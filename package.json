@@ -9,5 +9,20 @@
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
     "mongoose": "^8.10.1"
-  }
+  },
+  "version": "1.0.0",
+  "description": "You have been hired by a local restaurant to develop a simplified backend system for managing their online menu. The restaurant needs the following functionality:",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Hariharan2716/APIconnect.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Hariharan2716/APIconnect/issues"
+  },
+  "homepage": "https://github.com/Hariharan2716/APIconnect#readme"
 }
