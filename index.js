@@ -1,6 +1,7 @@
 require("dotenv").config();
 const express = require("express");
 const mongoose = require("mongoose");
+const MenuItem = require("./models/MenuItem");
 
 const app = express();
 app.use(express.json());
@@ -17,3 +18,31 @@ mongoose
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
+
+
+app.post("/menu", async (req, res) =>{
+  try{
+    const{name, description, price} =req.body;
+
+    if(!name || !price){
+      return res.status(400).json({error: "Name and price are required."});
+
+    }
+    const newItem = new MenuItem({name, description, price });
+    await newItem.save();
+    res.status(201).json({message: "Menu is created", newItem});
+  }
+  catch(err){
+    res.status(500).json({error: err.message});
+  }
+})
+
+app.get("/menu", async (req, res)=>{
+  try{
+    const menuItems = await MenuItem.find();
+    res.json(menuItems);
+
+  }catch(err){
+    res.status(500).json({error: err.message});
+  }
+})
